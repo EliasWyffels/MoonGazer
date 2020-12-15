@@ -62,7 +62,7 @@ shadow.setAttribute('style', "right :"+ "calc( (50% - var(--moon-size)/2) - "+sh
 const getPhase = async function()
 {
     id = Number(new Date(day))/1000|0;
-    const data = await fetch(`http://api.farmsense.net/v1/moonphases/?d=${id}`)
+    const data = await fetch(`https://api.farmsense.net/v1/moonphases/?d=${id}`)
     .then(r => r.json())
     .catch(err => console.error('An error occured: ',err));
     SetMoon(data[0].Illumination)
