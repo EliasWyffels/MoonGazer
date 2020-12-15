@@ -62,7 +62,7 @@ shadow.setAttribute('style', "right :"+ "calc( (50% - var(--moon-size)/2) - "+sh
 const getPhase = async function()
 {
     id = Number(new Date(day))/1000|0;
-    const data = await fetch(`http://api.farmsense.net/v1/moonphases/?d=${id}`)
+    const data = await fetch(`https://api.farmsense.net/v1/moonphases/?d=${id}`)
     .then(r => r.json())
     .catch(err => console.error('An error occured: ',err));
     SetMoon(data[0].Illumination)
@@ -87,7 +87,7 @@ const getlocation = async function()
 const getName = async function(lat,long)
 {
   let query = "latitude=" + lat + "&longitude=" + long + "&localityLanguage=nl";
-  const data = await fetch(`http://api.bigdatacloud.net/data/reverse-geocode-client?${query}`)
+  const data = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?${query}`)
   .then(r => r.json())
   .catch(err => console.error('An error occured: ',err));
   locatie.innerHTML = data.locality + ', ' + data.countryName;
@@ -96,7 +96,7 @@ const getName = async function(lat,long)
 const getTime = async function(lat,long)
 {
   let date = getDate();
-  const data = await fetch(`http://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
+  const data = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
   .then(r => r.json())
   .catch(err => console.error('An error occured: ',err));
   var Rise = data.moonrise;
