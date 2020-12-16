@@ -61,10 +61,10 @@ p+p{
   border-radius: 30px;
   line-height: 2rem;
   padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 1rem;
   font-size: 1rem;
-  text-align: center;
-  width: 14rem;
+  text-align: left;
+  width: 13rem;
 }
 .c-email_field:focus{
   outline: none;
@@ -85,7 +85,7 @@ p+p{
   border: solid 1px white;
 }
 .c-Subscribe__Button:hover{
-  box-shadow: 0 5px 15px white;
+  box-shadow: 0 0 10px white;
 }
 .c-Subscribe__Button:focus{
   outline: none;
@@ -229,9 +229,10 @@ p+p{
   margin-bottom: 1.5rem;
 }
 .c-error-text{
-  color: red;
+  margin-left: -6rem;
   font-size: 0.75rem;
   display: block;
+  color: red;
 }
 
 /*Utilities*/
