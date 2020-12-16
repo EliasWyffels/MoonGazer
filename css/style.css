@@ -6,33 +6,47 @@
 
 /*KeyFrames*/
 @keyframes shadowThrob {
-	0% {box-shadow: 0px 0px 0px 0px rgba(150,200,250,0);}
-  50% {box-shadow: 0px 0px 100px 5px rgba(150,200,250,0.75);}
-  0% {box-shadow: 0px 0px 0px 0px rgba(150,200,250,0);}
+	0% {box-shadow: 0px 0px 0px 0px var(--global-animation-color-alpha);}
+  50% {box-shadow: 0px 0px 100px 5px var(--global-animation-color-beta);}
+  0% {box-shadow: 0px 0px 0px 0px var(--global-animation-color-alpha);}
 }
 
 /*--------------*/
 :root{
   --global-font-size : 14px;
 
-  --moon-size : 15rem;
+  --global-moon-size : 15rem;
 
-  --color-white : #ffffff;
-  --color-alpha : rgb(75,50,100);
-  --color-beta : rgb(20,40,60);
-  --color-gamma : rgb(10,20,30);
+  --global-color-white : #ffffff;
+  --global-color-alpha : rgb(75,50,100);
+  --global-color-beta : rgb(20,40,60);
+  --global-color-gamma : rgb(10,20,30);
+  --global-color-delta : rgba(210,220,230,1);
+  --global-color-jota : rgba(200,210,250,1);
+  --global-color-error: red;
 
-  --background : linear-gradient(to bottom,var(--color-gamma) 15%,var(--color-alpha) 50%,var(--color-beta) 85%);
+  --global-animation-color-alpha : rgba(150,200,250,0);
+  --global-animation-color-beta : rgba(150,200,250,0.75);
+
+  --global-background : linear-gradient(to bottom,var(--global-color-gamma) 15%,var(--global-color-alpha) 50%,var(--global-color-beta) 85%);
+  --global-background-light : linear-gradient(to bottom,var(--global-color-delta) 25%,var(--global-color-jota) 100%);
+  --global-background-shadow : linear-gradient(to bottom,var(--global-color-gamma) 25%,var(--global-color-beta) 100%);
+
+  --global-body-max-width : 40rem;
+
+  --global-boxshadow : 0 0 10px;
+
+  --global-textshadow : -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 html{
-    background: var(--background);
+    background: var(--global-background);
     height: 100%;
-    color: var(--color-white);
+    color: var(--global-color-white);
     font-family: 'Lato', sans-serif;
     font-size: var(--global-font-size);
 }
 body{
-  max-width: 40rem;
+  max-width: var(--global-body-max-width);
   margin: auto;
   height: 100%;
   width: 100%;
@@ -49,8 +63,6 @@ p+p{
 }
 
 /*Components*/
-.c-forms{
-}
 .c-mockup__MoonGazer{
   width: 10rem;
   margin: auto;
@@ -59,8 +71,8 @@ p+p{
 .c-email_field{
   position: relative;
   background: transparent;
-  border: solid 1px white;
-  color: white;
+  border: solid 1px var(--global-color-white);
+  color: var(--global-color-white);
   border-radius: 30px;
   line-height: 2rem;
   padding-right: 0.5rem;
@@ -79,20 +91,21 @@ p+p{
   font-size: 1rem;
   font-weight: bold;
   line-height: 2rem;
-  color: white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(75,50,100);
+  color: var(--global-color-white);
+  background-color: var(--global-color-alpha);
   border-radius : 30px;
   cursor: pointer;
-  border: solid 1px white;
+  border: solid 1px var(--global-color-white);
 }
 .c-Subscribe__Button:hover{
-  box-shadow: 0 0 10px white;
+  box-shadow: var(--global-boxshadow) var(--global-color-white);
 }
 .c-Subscribe__Button:focus{
   outline: none;
-  background-color: rgb(20,40,60);
+  box-shadow: var(--global-boxshadow) var(--global-color-white);
+}
+.c-Subscribe__Button:active{
+  background-color : var(--global-color-beta);
 }
 .c-moonWrapper{
   display: flex;
@@ -110,39 +123,39 @@ p+p{
   margin: 0 auto;
   border-radius: 50%;
   mix-blend-mode: lighten;
-  width: var(--moon-size);
-  height: var(--moon-size);
+  width: var(--global-moon-size);
+  height: var(--global-moon-size);
   z-index: 0;
 }
 .c-light {
   position: absolute;
   overflow: hidden;
   margin: 0 auto;
-  background:linear-gradient(to bottom,rgba(210,220,230,1) 25%,rgba(200,210,250,1) 100%);
+  background: var(--global-background-light);
   mix-blend-mode: lighten;
-  box-shadow: inset 0vim 0vim 6.25vim 0.25vim rgba(75,50,100,0.5);
+  box-shadow: var(--global-boxshadow) var(--global-color-alpha);
   z-index: 1;
-  width: var(--moon-size);
-  height: var(--moon-size);
-  top: calc(50% -var(--moon-size)/2);
+  width: var(--global-moon-size);
+  height: var(--global-moon-size);
+  top: calc(50% - var(--global-moon-size)/2);
 }
 .c-shadow {
   position: absolute;
   overflow: hidden;
   margin: 0 auto;
   z-index: 2;
-  width: var(--moon-size);
-  height: var(--moon-size);
-  top: calc(50% -var(--moon-size)/2);
-  background:linear-gradient(to bottom,rgba(10,20,30,1) 25%,rgba(20,40,60,1) 100%);
+  width: var(--global-moon-size);
+  height: var(--global-moon-size);
+  top: calc(50% - var(--global-moon-size)/2);
+  background: var(--global-background-shadow);
   border-radius: 10%;
 }
 .c-percentage
 {
   margin: 0 auto;
   font-size: 2rem;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: var(--global-color-white);
+  text-shadow: var(--global-textshadow);
   z-index: 3;
 }
 .c-labelmicro{
@@ -163,7 +176,7 @@ p+p{
   font-size: 0.7rem;  
   line-height: 1rem;
   color: white;
-  
+  margin-left: 1.1rem;
 }
 .c-label--option {
   padding-bottom: 0;
@@ -179,8 +192,8 @@ p+p{
   height: 0.5rem;
   margin-right: 16px;
 
-  background:linear-gradient(to bottom,rgba(10,20,30,1) 25%,rgba(20,40,60,1) 100%);
-  border: 1px solid #E2E3E7;
+  background: var(--global-background-shadow);
+  border: 1px solid var(--global-color-white);
   border-radius: 24px;
 }
 .c-custom-toggle__fake-input::after {
@@ -191,20 +204,19 @@ p+p{
   height: 0.5rem;
   border-radius: 50%;
 
-  background-color: white;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.16);
+  background: var(--global-background-light);
 
   transition: all .1s ease-out;
 }
 .c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input {
-  border-color: #4F95FF;
-  box-shadow: 0 0 0 3px rgba(51,133,255,0.2);
+  background: var(--global-background-shadow);
 }
 .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input {
-  background: white;
+  background: var(--global-background-light);
 }
 .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
   transform: translateX(0.5rem);
+  background: var(--global-background-shadow);
 }
 .c-labelWrapper{
   width: 17rem;
@@ -220,22 +232,27 @@ p+p{
   border-spacing: 0.5rem;
 }
 .c-table th{
-  background: rgba(210,220,230,1);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  background: var(--global-color-delta);
+  text-shadow: var(--global-textshadow);
   border-radius: 30px;
   width: 6rem;
   height: 1rem;
+  font-size: 1rem;
+}
+.c-table tr{
+  font-size: 1rem;
 }
 .c-date{
   width: 10rem;
   height: 1.5rem;
   margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 .c-error-text{
   margin-left: -6rem;
   font-size: 0.75rem;
   display: block;
-  color: red;
+  color: var(--global-color-error);
 }
 
 /*Utilities*/
@@ -376,6 +393,15 @@ p+p{
   }
   p+p{
     margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 3000px)
+{
+  :root{
+    --global-font-size :60px;
+  }
+  .c-labelmicro{
+    margin-left: 0rem;
   }
 }
 

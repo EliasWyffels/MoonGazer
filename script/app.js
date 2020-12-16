@@ -48,15 +48,15 @@ let shadowMove          = ((percent))*1;
 
 if(percent > 50)
 {
-  moon.setAttribute('style',"background: linear-gradient(to bottom,rgba(10,20,30,1) 25%,rgba(20,40,60,1) 100%)");
+  moon.setAttribute('style',"background: var(--global-background-shadow);");
 }
 else
 {
-  moon.setAttribute('style',"background: linear-gradient(to bottom,rgba(210,220,230,1) 25%,rgba(200,210,250,1) 100%)");
+  moon.setAttribute('style',"background: var(--global-background-light);");
 }
 
-light.setAttribute('style', "left :"+ "calc( (50% - var(--moon-size)/2) - "+lightMove+"%); border-radius :"+ shadowRadius + "%/50%;");
-shadow.setAttribute('style', "right :"+ "calc( (50% - var(--moon-size)/2) - "+shadowMove+"%); border-radius :"+ shadowRadius + "%/50%;");
+light.setAttribute('style', "left :"+ "calc( (50% - var(--global-moon-size)/2) - "+lightMove+"%); border-radius :"+ shadowRadius + "%/50%;");
+shadow.setAttribute('style', "right :"+ "calc( (50% - var(--global-moon-size)/2) - "+shadowMove+"%); border-radius :"+ shadowRadius + "%/50%;");
 };
 
 const getPhase = async function()
@@ -71,8 +71,6 @@ const getPhase = async function()
     })
     .then(r => r.json())
     .catch(err => console.error('An error occured: ',err));
-    console.log(data)
-    console.log(data.moon.illumination)
     SetMoon(data.moon.illumination)
 }
 
@@ -109,7 +107,6 @@ const getTime = async function(lat,long)
   .catch(err => console.error('An error occured: ',err));
   var Rise = data.moonrise;
   var Set = data.moonset;
-  console.log(`https://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
   r.innerHTML = Rise;
   s.innerHTML = Set;
 }
