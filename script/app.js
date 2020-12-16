@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   getlocation();
   hidePercentage();
 
-  date.placeholder = day;
+  date.value = day;
 
   date.addEventListener("change", function() {
     day = this.value;
