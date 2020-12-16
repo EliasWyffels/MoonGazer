@@ -23,7 +23,8 @@
   --global-color-gamma : rgb(10,20,30);
   --global-color-delta : rgba(210,220,230,1);
   --global-color-jota : rgba(200,210,250,1);
-  --global-color-error: red;
+  --global-color-error : red;
+  --global-date-color : grey;
 
   --global-animation-color-alpha : rgba(150,200,250,0);
   --global-animation-color-beta : rgba(150,200,250,0.75);
@@ -246,7 +247,9 @@ p+p{
   width: 10rem;
   height: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 1rem;
+  padding-left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--global-date-color);
 }
 .c-error-text{
   margin-left: -6rem;

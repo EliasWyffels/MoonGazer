@@ -29,10 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
   getlocation();
   hidePercentage();
 
-  date.placeholder = day;
+  date.value = day;
 
   date.addEventListener("change", function() {
     day = this.value;
+    r.innerHTML = "Loading...";
+    s.innerHTML = "Loading...";
+    percentage.innerHTML = "Loading...";
     getPhase();
     getlocation();
   });
@@ -101,7 +104,7 @@ const getName = async function(lat,long)
 
 const getTime = async function(lat,long)
 {
-  let date = getDate();
+  date.value = day;
   const data = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
   .then(r => r.json())
   .catch(err => console.error('An error occured: ',err));
