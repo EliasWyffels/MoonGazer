@@ -251,10 +251,6 @@ p+p{
   font-size: 0.75rem;
   color: var(--global-date-color);
 }
-input[type="date"]::-webkit-clear-button {
-  -webkit-appearance: none;
-   display: none;
- }
 .c-error-text{
   margin-left: -6rem;
   font-size: 0.75rem;
