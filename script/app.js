@@ -104,7 +104,7 @@ const getName = async function(lat,long)
 
 const getTime = async function(lat,long)
 {
-  date.placeholder = day;
+  date.value = day;
   const data = await fetch(`https://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
   .then(r => r.json())
   .catch(err => console.error('An error occured: ',err));
