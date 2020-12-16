@@ -109,6 +109,7 @@ const getTime = async function(lat,long)
   .catch(err => console.error('An error occured: ',err));
   var Rise = data.moonrise;
   var Set = data.moonset;
+  console.log(`https://api.ipgeolocation.io/astronomy?apiKey=${API_KEY}&lat=${lat}&long=${long}&date=${day}`)
   r.innerHTML = Rise;
   s.innerHTML = Set;
 }

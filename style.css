@@ -14,17 +14,20 @@
 /*--------------*/
 :root{
   --global-font-size : 14px;
+
   --moon-size : 15rem;
+
+  --color-white : #ffffff;
+  --color-alpha : rgb(75,50,100);
+  --color-beta : rgb(20,40,60);
+  --color-gamma : rgb(10,20,30);
+
+  --background : linear-gradient(to bottom,var(--color-gamma) 15%,var(--color-alpha) 50%,var(--color-beta) 85%);
 }
 html{
-    background: linear-gradient(
-      to bottom,
-      rgb(10,20,30) 15%,
-      rgb(75,50,100) 50%,
-      rgb(20,40,60) 85%
-    );
+    background: var(--background);
     height: 100%;
-    color: white;
+    color: var(--color-white);
     font-family: 'Lato', sans-serif;
     font-size: var(--global-font-size);
 }
