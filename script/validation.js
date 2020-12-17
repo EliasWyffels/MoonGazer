@@ -27,7 +27,6 @@ const getDOMElements = function() {
 /* -------------------------------------------------------------------------- */
 const enableListeners = function() {
 	signInButton.addEventListener('submit', function(e) {
-		console.log(email.value)
 		if(ValidateEmail(email.value))
 		{
 			return true
