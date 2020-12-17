@@ -47,7 +47,7 @@ percentage.innerHTML = Math.round(percent) + "%";
 
 let shadowRadius        = Math.abs(50-(percent));
 let lightMove           = (100-(percent))*1;
-let shadowMove          = ((percent))*1;
+let shadowMove          = percent;
 
 if(percent > 50)
 {
