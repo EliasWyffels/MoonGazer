@@ -46,7 +46,7 @@ const SetMoon = function(percent)
 percentage.innerHTML = Math.round(percent) + "%";
 
 let shadowRadius        = Math.abs(50-(percent));
-let lightMove           = (100-(percent))*1;
+let lightMove           = 100-percent;
 let shadowMove          = percent;
 
 if(percent > 50)
